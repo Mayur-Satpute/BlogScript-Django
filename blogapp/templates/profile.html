@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+<!-- PROFILE CARD (CENTERED) -->
+<div class="row justify-content-center mb-4">
+  <div class="col-md-5">
+
+    <div class="card">
+      <div class="card-body text-center">
+
+        <img src="https://ui-avatars.com/api/?name={{ request.user.username }}&background=1A4D8F&color=fff&size=100"
+             class="rounded-circle mb-2">
+
+        <h5 class="mb-0">@{{ request.user.username }}</h5>
+        <small class="text-muted">{{ request.user.email }}</small>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MY POSTS -->
+<h5 class="mb-3 text-center">My Posts</h5>
+
+<div class="row justify-content-center">
+  {% for post in posts %}
+  <div class="col-md-4 mb-4">
+
+    <div class="card" style="width:18rem;">
+
+      {% if post.image %}
+        <img src="{{ post.image.url }}" class="card-img-top" style="height:200px;object-fit:cover;">
+      {% else %}
+        <img src="{% static 'image/noimg.png' %}" class="card-img-top" style="height:200px;object-fit:cover;">
+      {% endif %}
+
+      <div class="card-body">
+        <h6 class="card-title">{{ post.title }}</h6>
+
+        <p class="card-text">
+          {{ post.content|truncatechars:80 }}
+        </p>
+
+        <a href="{% url 'blog_detail' post.id %}" class="btn btn-dark btn-sm">View</a>
+        <a href="{% url 'edit_post' post.id %}" class="btn btn-warning btn-sm">Edit</a>
+        <a href="{% url 'delete_post' post.id %}"
+           class="btn btn-danger btn-sm"
+           onclick="return confirm('Delete this post?');">
+           Delete
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+  {% empty %}
+    <p class="text-center">You haven’t posted anything yet.</p>
+  {% endfor %}
+</div>
+
+{% else %}
+
+<div class="text-center mt-5">
+  <h4>Please login</h4>
+  <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+</div>
+
+{% endif %}
+
+{% endblock %}

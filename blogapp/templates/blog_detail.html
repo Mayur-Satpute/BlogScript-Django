@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="mt-4">
+
+    <h3>{{ post.title }}</h3>
+    <p class="text-muted small">
+        {{ post.author }} • {{ post.date_posted|date:"M d, Y" }}
+    </p>
+
+    {% if post.image %}
+        <img src="{{ post.image.url }}" class="img-fluid mb-3">
+    {% endif %}
+
+    <p>{{ post.content }}</p>
+
+    <a href="{% url 'home' %}" class="btn btn-dark btn-sm">Back</a>
+
+</div>
+
+{% endblock %}

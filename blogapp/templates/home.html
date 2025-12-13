@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+<h4 class="mb-4">Latest Posts</h4>
+
+<div class="row">
+  {% for post in posts %}
+  <div class="col-md-4 mb-4">
+
+    <div class="card" style="width: 18rem;">
+
+      {% if post.image %}
+        <img src="{{ post.image.url }}" class="card-img-top" style="height:200px; object-fit:cover;">
+      {% else %}
+        <img src="{% static 'image/noimg.png' %}" class="card-img-top" style="height:200px; object-fit:cover;">
+      {% endif %}
+
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+
+        <small class="text-muted">
+          By {{ post.author.username }}
+        </small>
+
+
+        <p class="card-text">
+          {{ post.content|truncatechars:90 }}
+        </p>
+
+        <a href="{% url 'blog_detail' post.id %}" class="btn btn-primary btn-sm">
+          Read More
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% else %}
+
+<!-- NOT LOGGED IN -->
+<div class="text-center mt-5">
+  <h4>Please login to view blog posts</h4>
+  <p class="text-muted">Join BlogScript and explore amazing content 🚀</p>
+
+  <a href="{% url 'login' %}" class="btn btn-primary mt-2">Login</a>
+  <a href="{% url 'signup' %}" class="btn btn-outline-primary mt-2 ml-2">Sign Up</a>
+</div>
+
+{% endif %}
+
+{% endblock %}

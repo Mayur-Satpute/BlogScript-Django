@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="text-center" style="max-width:350px;margin:auto;">
+
+  <img src="{% static 'image/logo.png' %}" width="160" class="rounded-circle mb-3">
+
+  <form method="post">
+    {% csrf_token %}
+    <input name="username" class="form-control mb-2" placeholder="Username" required>
+    <input type="password" name="password" class="form-control mb-2" placeholder="Password" required>
+    <button class="btn btn-dark w-100">Login</button>
+  </form>
+
+  <small class="d-block mt-2">
+    No account? <a href="{% url 'signup' %}">Sign Up</a>
+  </small>
+
+</div>
+
+{% endblock %}

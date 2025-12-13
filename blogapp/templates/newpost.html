@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h4>Create Post</h4>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input class="form-control mb-2" name="title" placeholder="Title">
+  <textarea class="form-control mb-2" name="content" rows="5" placeholder="Content"></textarea>
+  <input class="form-control mb-3" type="file" name="image">
+  <button class="btn btn-dark w-100">Publish</button>
+</form>
+
+{% endblock %}

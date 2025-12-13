@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h4>Edit Post</h4>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <input type="text" name="title" value="{{ post.title }}" class="form-control mb-2" placeholder="Title" required>
+
+  <textarea name="content" rows="5" class="form-control mb-2" placeholder="Content" required>{{ post.content }}</textarea>
+
+  {% if post.image %}
+    <img src="{{ post.image.url }}" class="img-fluid mb-2">
+  {% endif %}
+
+  <input type="file" name="image" class="form-control mb-3">
+
+  <button class="btn btn-dark w-100">Save Changes</button>
+</form>
+
+{% endblock %}
