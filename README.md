@@ -158,13 +158,33 @@ Passionate about building real-world applications 🚀
 
 ## 📄 License
 
-This project is licensed under the **MIT License**.
-Feel free to use, learn, and improve it.
+This project is released under the **MIT License**, allowing you to **use, modify, distribute, and learn** from the code with minimal restrictions.
+Perfect for **open-source contributions, learning purposes, and production use**.
 
 ---
 
-### ⭐ If you like this project
+## ⭐ Support This Project
 
-Give it a **star ⭐ on GitHub** — it helps a lot!
+If this repository helped you learn **Python / Django / Backend Development**, please consider giving it a **⭐ star on GitHub**.
+
+Your support:
+
+* Improves project visibility
+* Encourages ongoing improvements
+* Helps other developers discover this repository
 
 ---
+
+### 🤝 Contributions Welcome
+
+Feel free to **fork**, **open issues**, or **submit pull requests** to improve this project.
+
+---
+
+### 📌 Keywords (SEO Boost)
+
+`python` · `django` · `backend-development` · `open-source` · `mit-license` · `github-project` · `learning-project`
+
+---
+
+Feel free to fork, open issues, or submit pull requests to improve this project.
