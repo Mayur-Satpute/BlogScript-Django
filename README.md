@@ -181,7 +181,7 @@ Feel free to **fork**, **open issues**, or **submit pull requests** to improve t
 
 ---
 
-### 📌 Keywords (SEO Boost)
+### 📌 Keywords
 
 `python` · `django` · `backend-development` · `open-source` · `mit-license` · `github-project` · `learning-project`
 
